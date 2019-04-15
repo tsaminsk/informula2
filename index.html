@@ -841,110 +841,260 @@
     </div>
 
     <script>
-    'use strict'
-    class StoneDetails {
-        constructor($el) {
-            this.$element = $el;
-            this.$slider = this.$element.find('.js-slider');
-            this.$wrapp = this.$slider.find('.stone_block__slider-images');
-            this.$buttonGroup = this.$element.find('.js-button-group');
+    "use strict";
 
-            this.setSlider();
-            this.setButtonGroup();
-        }
-        setButtonGroup() {
-            let buttonGroup = this.$buttonGroup.find('a');
-            let tabsWrapp = $('.stone_block__price-items');
-            let tabsItems = $('.stone_block__price-item');
-            let k = tabsItems.length;
-            $(tabsWrapp).css('width', `calc(${k*100}% + ${k*15}px`);
-            $(tabsItems).css('width', `${100/k}%`);
-            for (let i=0; i<buttonGroup.length; i++){
-                buttonGroup[i].addEventListener('click', function (e) {
-                    e.preventDefault();
-                    $(tabsWrapp).css('transform', `translate3d(-${100 / k * i}%, 0, 0)`);
-                    for (let j = 0; j < buttonGroup.length; j++) {
-                        if (j != i && $(buttonGroup[j]).hasClass('is-active')) {
-                            $(buttonGroup[j]).removeClass('is-active')
-                        }
-                        if (j === i) {
-                            $(buttonGroup[j]).addClass('is-active')
-                        }
-                    }
-                });
+        function _instanceof(left, right) { if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) { return right[Symbol.hasInstance](left); } else { return left instanceof right; } }
 
-                let items = $(tabsItems[i]).find('.stone_block__price-tab');
-                for (let z = 0; z < items.length; z++) {
-                    items[z].addEventListener('click', function (event) {
-                        event.preventDefault();
-                        for (let j = 0; j < items.length; j++) {
-                            if (j != z && $(items[j]).hasClass('is-open')) {
-                                $(items[j]).removeClass('is-open')
-                            }
-                            if (j === z) {
-                                $(items[j]).addClass('is-open')
-                            }
-                        }
-                    });
+        function _classCallCheck(instance, Constructor) { if (!_instanceof(instance, Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+        function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+        function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+        var StoneDetails =
+            /*#__PURE__*/
+            function () {
+                function StoneDetails($el) {
+                    _classCallCheck(this, StoneDetails);
+
+                    this.$element = $el;
+                    this.$slider = this.$element.find('.js-slider');
+                    this.$wrapp = this.$slider.find('.stone_block__slider-images');
+                    this.$buttonGroup = this.$element.find('.js-button-group');
+                    this.setSlider();
+                    this.setButtonGroup();
                 }
-            }
-        }
 
-        setSlider() {
-            let arr = this.$slider.find('.stone_block__slider-pagination a');
-            let wrapp = this.$slider.find('.stone_block__slider-images');
-            let k = arr.length;
-            $(wrapp).css('width', `${k*100}%`);
-            for (let i=0; i<arr.length; i++){
-                arr[i].addEventListener('click', function (event) {
-                    
-                    $(wrapp).css('transform', `translate3d(-${100 / k * i}%, 0, 0)`);
-                    for (let j=0; j<arr.length; j++){
-                        if (j != i && $(arr[j]).hasClass('is-active')) {
-                            $(arr[j]).removeClass('is-active')
-                        }
-                        if (j === i) {
-                            $(arr[j]).addClass('is-active')
+                _createClass(StoneDetails, [{
+                    key: "setButtonGroup",
+                    value: function setButtonGroup() {
+                        var buttonGroup = this.$buttonGroup.find('a');
+                        var tabsWrapp = $('.stone_block__price-items');
+                        var tabsItems = $('.stone_block__price-item');
+                        var k = tabsItems.length;
+                        $(tabsWrapp).css('width', "calc(".concat(k * 100, "% + ").concat(k * 15, "px"));
+                        $(tabsItems).css('width', "".concat(100 / k, "%"));
+
+                        var _loop = function _loop(i) {
+                            buttonGroup[i].addEventListener('click', function (e) {
+                                e.preventDefault();
+                                $(tabsWrapp).css('transform', "translate3d(-".concat(100 / k * i, "%, 0, 0)"));
+
+                                for (var j = 0; j < buttonGroup.length; j++) {
+                                    if (j != i && $(buttonGroup[j]).hasClass('is-active')) {
+                                        $(buttonGroup[j]).removeClass('is-active');
+                                    }
+
+                                    if (j === i) {
+                                        $(buttonGroup[j]).addClass('is-active');
+                                    }
+                                }
+                            });
+                            var items = $(tabsItems[i]).find('.stone_block__price-tab');
+
+                            var _loop2 = function _loop2(z) {
+                                items[z].addEventListener('click', function (event) {
+                                    event.preventDefault();
+
+                                    for (var j = 0; j < items.length; j++) {
+                                        if (j != z && $(items[j]).hasClass('is-open')) {
+                                            $(items[j]).removeClass('is-open');
+                                        }
+
+                                        if (j === z) {
+                                            $(items[j]).addClass('is-open');
+                                        }
+                                    }
+                                });
+                            };
+
+                            for (var z = 0; z < items.length; z++) {
+                                _loop2(z);
+                            }
+                        };
+
+                        for (var i = 0; i < buttonGroup.length; i++) {
+                            _loop(i);
                         }
                     }
-                });
-            }
-            // слайд от тачскрина
-            document.querySelector('.stone_block__slider-images').addEventListener('touchstart', function (e) {                
-                var delta = 0;
-                for (let i = 0; i < arr.length; i++) {
-                    if ($(arr[i]).hasClass('is-active')) {
-                        delta = i;
-                    }
-                }
-                const target = e.changedTouches[0].target;
-                const startCoord = e.changedTouches[0].screenX;
-                const endHandler = e => {
-                    const endCoord = e.changedTouches[0].screenX;
-                    // движение на более чем 30 пикселей, скорее всего, намеренное
-                    if (Math.abs(startCoord - endCoord) > 30) {
-                        if (endCoord > startCoord && delta > 0) {
-                            $(arr[delta]).removeClass('is-active');
-                            $(arr[delta - 1]).addClass('is-active');
-                            $(wrapp).css('transform', `translate3d(-${(delta - 1) * 100/k}%, 0, 0)`);
-                        } else if (endCoord < startCoord && delta < 3) {
-                            $(arr[delta]).removeClass('is-active');
-                            $(arr[delta + 1]).addClass('is-active');
-                            $(wrapp).css('transform', `translate3d(-${(delta + 1) * 100/k}%, 0, 0)`);
+                }, {
+                    key: "setSlider",
+                    value: function setSlider() {
+                        var arr = this.$slider.find('.stone_block__slider-pagination a');
+                        var wrapp = this.$slider.find('.stone_block__slider-images');
+                        var k = arr.length;
+                        $(wrapp).css('width', "".concat(k * 100, "%"));
+
+                        var _loop3 = function _loop3(i) {
+                            arr[i].addEventListener('click', function (event) {
+                                $(wrapp).css('transform', "translate3d(-".concat(100 / k * i, "%, 0, 0)"));
+
+                                for (var j = 0; j < arr.length; j++) {
+                                    if (j != i && $(arr[j]).hasClass('is-active')) {
+                                        $(arr[j]).removeClass('is-active');
+                                    }
+
+                                    if (j === i) {
+                                        $(arr[j]).addClass('is-active');
+                                    }
+                                }
+                            });
+                        };
+
+                        for (var i = 0; i < arr.length; i++) {
+                            _loop3(i);
                         }
+
+                        document.querySelector('.stone_block__slider-images').addEventListener('touchstart', function (e) {
+                            var delta = 0;
+
+                            for (var i = 0; i < arr.length; i++) {
+                                if ($(arr[i]).hasClass('is-active')) {
+                                    delta = i;
+                                }
+                            }
+
+                            var target = e.changedTouches[0].target;
+                            var startCoord = e.changedTouches[0].screenX;
+
+                            var endHandler = function endHandler(e) {
+                                var endCoord = e.changedTouches[0].screenX;
+
+                                if (Math.abs(startCoord - endCoord) > 30) {
+                                    if (endCoord > startCoord && delta > 0) {
+                                        $(arr[delta]).removeClass('is-active');
+                                        $(arr[delta - 1]).addClass('is-active');
+                                        $(wrapp).css('transform', "translate3d(-".concat((delta - 1) * 100 / k, "%, 0, 0)"));
+                                    } else if (endCoord < startCoord && delta < 3) {
+                                        $(arr[delta]).removeClass('is-active');
+                                        $(arr[delta + 1]).addClass('is-active');
+                                        $(wrapp).css('transform', "translate3d(-".concat((delta + 1) * 100 / k, "%, 0, 0)"));
+                                    }
+                                }
+
+                                target.removeEventListener('touchend', endHandler);
+                            };
+
+                            target.addEventListener('touchend', endHandler);
+                        });
                     }
-                    target.removeEventListener('touchend', endHandler);
-                };
-                target.addEventListener('touchend', endHandler);
+                }]);
+
+                return StoneDetails;
+            }();
+
+        $(function () {
+            $('.js-stone-details').each(function (i, item) {
+                new StoneDetails($(item));
             });
-        }
-    }
-
-    $(() => {
-        $('.js-stone-details').each((i, item) => {
-            new StoneDetails($(item));
         });
-    });
+
+
+
+
+    // class StoneDetails {
+    //     constructor($el) {
+    //         this.$element = $el;
+    //         this.$slider = this.$element.find('.js-slider');
+    //         this.$wrapp = this.$slider.find('.stone_block__slider-images');
+    //         this.$buttonGroup = this.$element.find('.js-button-group');
+
+    //         this.setSlider();
+    //         this.setButtonGroup();
+    //     }
+    //     setButtonGroup() {
+    //         let buttonGroup = this.$buttonGroup.find('a');
+    //         let tabsWrapp = $('.stone_block__price-items');
+    //         let tabsItems = $('.stone_block__price-item');
+    //         let k = tabsItems.length;
+    //         $(tabsWrapp).css('width', `calc(${k*100}% + ${k*15}px`);
+    //         $(tabsItems).css('width', `${100/k}%`);
+    //         for (let i=0; i<buttonGroup.length; i++){
+    //             buttonGroup[i].addEventListener('click', function (e) {
+    //                 e.preventDefault();
+    //                 $(tabsWrapp).css('transform', `translate3d(-${100 / k * i}%, 0, 0)`);
+    //                 for (let j = 0; j < buttonGroup.length; j++) {
+    //                     if (j != i && $(buttonGroup[j]).hasClass('is-active')) {
+    //                         $(buttonGroup[j]).removeClass('is-active')
+    //                     }
+    //                     if (j === i) {
+    //                         $(buttonGroup[j]).addClass('is-active')
+    //                     }
+    //                 }
+    //             });
+
+    //             let items = $(tabsItems[i]).find('.stone_block__price-tab');
+    //             for (let z = 0; z < items.length; z++) {
+    //                 items[z].addEventListener('click', function (event) {
+    //                     event.preventDefault();
+    //                     for (let j = 0; j < items.length; j++) {
+    //                         if (j != z && $(items[j]).hasClass('is-open')) {
+    //                             $(items[j]).removeClass('is-open')
+    //                         }
+    //                         if (j === z) {
+    //                             $(items[j]).addClass('is-open')
+    //                         }
+    //                     }
+    //                 });
+    //             }
+    //         }
+    //     }
+
+    //     setSlider() {
+    //         let arr = this.$slider.find('.stone_block__slider-pagination a');
+    //         let wrapp = this.$slider.find('.stone_block__slider-images');
+    //         let k = arr.length;
+    //         $(wrapp).css('width', `${k*100}%`);
+    //         for (let i=0; i<arr.length; i++){
+    //             arr[i].addEventListener('click', function (event) {
+                    
+    //                 $(wrapp).css('transform', `translate3d(-${100 / k * i}%, 0, 0)`);
+    //                 for (let j=0; j<arr.length; j++){
+    //                     if (j != i && $(arr[j]).hasClass('is-active')) {
+    //                         $(arr[j]).removeClass('is-active')
+    //                     }
+    //                     if (j === i) {
+    //                         $(arr[j]).addClass('is-active')
+    //                     }
+    //                 }
+    //             });
+    //         }
+    //         // слайд от тачскрина
+    //         document.querySelector('.stone_block__slider-images').addEventListener('touchstart', function (e) {                
+    //             var delta = 0;
+    //             for (let i = 0; i < arr.length; i++) {
+    //                 if ($(arr[i]).hasClass('is-active')) {
+    //                     delta = i;
+    //                 }
+    //             }
+    //             const target = e.changedTouches[0].target;
+    //             const startCoord = e.changedTouches[0].screenX;
+    //             const endHandler = e => {
+    //                 const endCoord = e.changedTouches[0].screenX;
+    //                 // движение на более чем 30 пикселей, скорее всего, намеренное
+    //                 if (Math.abs(startCoord - endCoord) > 30) {
+    //                     if (endCoord > startCoord && delta > 0) {
+    //                         $(arr[delta]).removeClass('is-active');
+    //                         $(arr[delta - 1]).addClass('is-active');
+    //                         $(wrapp).css('transform', `translate3d(-${(delta - 1) * 100/k}%, 0, 0)`);
+    //                     } else if (endCoord < startCoord && delta < 3) {
+    //                         $(arr[delta]).removeClass('is-active');
+    //                         $(arr[delta + 1]).addClass('is-active');
+    //                         $(wrapp).css('transform', `translate3d(-${(delta + 1) * 100/k}%, 0, 0)`);
+    //                     }
+    //                 }
+    //                 target.removeEventListener('touchend', endHandler);
+    //             };
+    //             target.addEventListener('touchend', endHandler);
+    //         });
+    //     }
+    // }
+
+    // $(() => {
+    //     $('.js-stone-details').each((i, item) => {
+    //         new StoneDetails($(item));
+    //     });
+    // });
     </script>
 </body>
 
