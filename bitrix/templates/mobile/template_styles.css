@@ -688,6 +688,7 @@ body {
 .stone_block__title h1 {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
+    font-weight: 400;
     line-height: 14px;
     color: rgba(0, 0, 0, 0.4);
 }
@@ -814,23 +815,20 @@ body {
 }
 
 .stone_block__description-links a:last-child {
-    float: right;
+    /* float: right; */
     background-color: #41A7C6;
     color: #fff;
+    margin: 0 0 0 10px;
 }
 
-@media (min-width: 450px) {
-    .stone_block__description-links {
-        display: flex;
-        justify-content: space-around;
-    }
+@media (min-width: 550px) {
 
     .stone_block__description-links a {
         width: 250px;
     }
 
     .stone_block__description-links a:last-child {
-        margin: 0;
+        margin: 0 0 0 20px;
     }
 }
 
@@ -846,6 +844,7 @@ body {
 
 .stone_block__price-title {
     font-size: 18px;
+    font-weight: 600;
     color: #000;
     margin: 0 0 22px;
 }
@@ -908,6 +907,7 @@ body {
     position: relative;
     padding: 15px 0;
     font-size: 14px;
+    font-weight: 700;
     color: #000;
     margin: 0 0 5px;
     transition: transform 0.25s;
