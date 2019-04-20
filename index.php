@@ -1,4 +1,4 @@
-<?php header("Access-Control-Allow-Origin: http://example.com"); ?>
+<?php header("Access-Control-Allow-Origin: https://www.milur.ru"); ?>
 <!DOCTYPE html>
 <html class='no-js' lang='ru'>
 <head>
