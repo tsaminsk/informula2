@@ -10238,6 +10238,10 @@ span.whith-close:before {
     border-top: 1px solid #E7E7E7;
     padding: 15px 0 0;
     font-size: 0;
+    margin: 20px 0 0;
+}
+
+.top-bordered:first-child {
     margin: 0;
 }
 
