@@ -10305,42 +10305,13 @@ span.whith-close:before {
 }
 
 @media (max-width: 767px) {
-    .row-inline {
-        width: 30%;
-        min-width: 110px;
-        float: left;
-        display: flex;
-        flex-direction: column;
+    .table-content {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: auto;
     }
-
-    .row-reverse .top-bordered {
-        width: 70%;
-        max-width: calc(100% - 110px);
-        display: flex;
-        flex-direction: column;
-        border: none;
-    }
-
-    .order-table-col-1,
-    .order-table-col-2,
-    .order-table-col-3,
-    .order-table-col-4 {
-        display: block;
-        width: auto;
-    }
-
-    .order-table-col-1 {
-        height: 180px;
-    }
-
-    .top-bordered .order-data {
-        padding: 0;
-    }
-
-    .order-data-img {
-        height: auto;
-        float: none;
-        margin: 0 0 10px;
+    .table-wrapper {
+        min-width: 660px;
+        margin: 0 0 20px;
     }
 }
 
@@ -10465,5 +10436,4 @@ span.whith-close:before {
     font-weight: 500;
     line-height: 10px;
     color: #999;
-
 }
