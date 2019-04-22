@@ -421,25 +421,30 @@
                         </div>
                         <div class="order-detail-back">
                             <a href="#">
-                                <span class="hidden-sm hidden-xs">Вернуться в список заказов</span>
+                                <span>Вернуться в список заказов</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="order-detail js-order-detail">
                     <div class='row'>
-                        <div class='col-lg-9 col-md-8 col-xs-12'>
+                        <div class='col-lg-9 col-md-12'>
                             <div class="panel">
                                 <div class="panel-head">
                                     <div class="h3">Информация о заказе</div>
                                 </div>
-                                <div class="row">
+                                <div class="row js-align js-add-block-desc">
                                     <div class="col-md-4">
                                         <div class="order-data-name">
                                             Ф.И.О.:
                                         </div>
                                         <div class="order-data">
                                             Константинопольский Константин Константинович
+                                        </div>
+                                        <div class="order-btn js-add-block-mob">
+                                            <a class="btn btn-empty2 btn-block btn-sm" id="zakaz-more-button" href="#">
+                                                <span class="whith-shape">Подробнее</span>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -450,6 +455,11 @@
                                         <div class="order-data">
                                             Оплачен, формируется к отправке
                                         </div>
+                                        <div class="order-btn">
+                                            <a class="btn btn-empty3 btn-sm" href="#">
+                                                <span class="whith-close">Отменить заказ</span>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="order-data-name">
@@ -458,21 +468,9 @@
                                         <div class="order-data">
                                             <span class="order-data-sum">10 090</span>&nbsp;&#8381;
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a class="btn btn-empty2 btn-block btn-sm" id="zakaz-more-button" href="#">
-                                            <span class="whith-shape">Подробнее</span>
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a class="btn btn-empty3 btn-sm" href="#">
-                                            <span class="whith-close">Отменить заказ</span>
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a class="btn btn-primary btn-block btn-sm" href="#">Повторить заказ</a>
+                                        <div class="order-btn">
+                                            <a class="btn btn-primary btn-block btn-sm" href="#">Повторить заказ</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="order-detail-more" id="zakaz-more">
@@ -527,7 +525,7 @@
                                 <div class="panel-head">
                                     <div class="h3">Параметры оплаты</div>
                                 </div>
-                                <div class="row">
+                                <div class="row js-align">
                                     <div class="col-md-4">
                                         <div class="order-data-name">
                                             Способ оплаты:
@@ -549,6 +547,7 @@
                                             Статус:
                                         </div>
                                         <div class="order-data order-data-warning">
+                                            <!--if "оплачен" order-data-completed-->
                                             Не оплачен
                                         </div>
                                     </div>
@@ -573,11 +572,13 @@
                                 </div>
                                 <div class="order-detail-more" id="pay-more">
                                     <div class="row">
-                                        <div class="panel-head col-md-10">
+                                        <div class="panel-head col-md-10 col-xs-11">
                                             <div class="h3">Выберите новый способ оплаты</div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <a href="#" class="order-change" id="pay-more-close">Отмена</a>
+                                        <div class="col-md-2 col-xs-1">
+                                            <a href="#" class="order-change" id="pay-more-close">
+                                                <span class="hidden-xs">Отмена</span>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -586,7 +587,6 @@
                                                 <div class="order-pay-name">
                                                     Банковской картой онлайн
                                                 </div>
-                                                
                                                 <div class="order-pay-icon">
                                                     <img src="/bitrix/templates/default/images/pay/logo-sber.png" alt="">
                                                 </div>
@@ -601,7 +601,6 @@
                                                     <img src="/bitrix/templates/default/images/icons/note.svg" alt="">
                                                     <span>счет<br>на&nbsp;оплату</span>
                                                 </div>
-                                
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -649,11 +648,13 @@
                                 </div>
                                 <div class="order-detail-more" id="delivery-more">
                                     <div class="row">
-                                        <div class="panel-head col-md-10">
+                                        <div class="panel-head col-md-10 col-xs-11">
                                             <div class="h3">Выберите новый способ доставки</div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <a href="#" class="order-change" id="delivery-more-close">Отмена</a>
+                                        <div class="col-md-2 col-xs-1">
+                                            <a href="#" class="order-change" id="delivery-more-close">
+                                                <span class="hidden-xs">Отмена</span>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -725,9 +726,10 @@
                                         <div class="order-data-img">
                                             <img src="/upload/images/elem.jpg" alt="">
                                         </div>
-                                        
+
                                         <div class="order-goods-name">
-                                            <a href="/catalog/schetchiki-elektrichestva/milur-307-32rg-2-d/">Милур 307.32RG-2-D</a>
+                                            <a href="/catalog/schetchiki-elektrichestva/milur-307-32rg-2-d/">Милур
+                                                307.32RG-2-D</a>
                                         </div>
                                         <div class="order-goods-desc">
                                             <span>Часовой пояс: Москва (UTC+03:00) <br>
@@ -754,13 +756,13 @@
 
                             <div class="order-detail-back">
                                 <a href="#">
-                                    <span class="hidden-sm hidden-xs">Вернуться в список заказов</span>
+                                    <span>Вернуться в список заказов</span>
                                 </a>
                             </div>
                         
                         </div>
 
-                        <div class="order-detail-submenu col-lg-3 col-md-4 col-xs-12">
+                        <div class="order-detail-submenu col-lg-3 col-md-12">
                             <div class="panel">
                                 <a href="#" class="">Мой профиль</a>
                                 <a href="#" class="">Адреса</a>

@@ -13,13 +13,63 @@ class OrderDetail {
         this.$payButton = this.$element.find('#pay-more-button');
         this.$payClose = this.$element.find('#pay-more-close');
         this.$payOrders = this.$element.find('.order-pay');
-
+        this.$rows = this.$element.find('.js-align');
+        
+        this.setClientParams();
         this.setZakaz();
         this.setDelivery();
         this.setDeliveryOrders();
         this.setPay();
         this.setPayOrders();
+        this.setAlign();
+        this.setResaze();
+    }
 
+    setResaze() {
+        $(window).resize( () => {
+            this.setClientParams();
+            this.setAlign();
+        });
+    }
+
+    setClientParams() {
+        if ($('.order-detail-more#zakaz-more')) {
+            if ( $("body").innerWidth() < 992 ) {
+                let innerCode = $('.order-detail-more#zakaz-more');
+                $('.order-detail-more#zakaz-more').remove();
+                $('.js-add-block-mob').after(innerCode);
+            }
+            else {
+                let innerCode = $('.order-detail-more#zakaz-more');
+                $('.order-detail-more#zakaz-more').remove();
+                $('.js-add-block-desc').after(innerCode);
+            }
+        }
+    }
+
+    setAlign() {
+        if ( $("body").innerWidth() >= 992) {
+            $.each(this.$rows, function (index, value) {
+                let max_col_height = 0;
+                let columns = $(value).find('.col-md-4');
+                for (var i = columns.length - 1; i >= 0; i--) {
+                    if (columns[i].offsetHeight > max_col_height) {
+                        max_col_height = columns[i].offsetHeight;
+                    }
+                }
+                for (var i = 0; i <= columns.length; i++) {
+                    $(columns[i]).css('height', max_col_height + 'px');
+                }
+            });
+        }
+        else {
+            $.each(this.$rows, function (index, value) {
+                let columns = $(value).find('.col-md-4');
+                for (var i = 0; i <= columns.length; i++) {
+                    $(columns[i]).css('height', 'auto');
+                }
+            });
+        }
     }
 
     setZakaz() {
@@ -86,6 +136,7 @@ class OrderDetail {
             event.preventDefault();
             $('.js-pay-more-button').hide(200);;
             $(this.$pay).fadeIn(500);
+            
         });
 
         $(this.$payClose).on('click', event => {
@@ -96,27 +147,29 @@ class OrderDetail {
     }
 
     setPayOrders() {
+        
         let currentPayOrder = $('.order-pay.order-pay-changed');
+        let orderPayName = $(currentPayOrder).find('.order-pay-name').html();;
         $(this.$payOrders).on('click', event => {
             event.preventDefault();
             $(this.$payOrders).removeClass('order-pay-changed');
             $(event.target).hasClass('order-pay') ? currentPayOrder = event.target : currentPayOrder = $(event.target).parents('.order-pay');
             $(currentPayOrder).addClass('order-pay-changed');
+            orderPayName = $(currentPayOrder).find('.order-pay-name').html();
         });
 
         $('#pay-method-save').on('click', event => {
             event.preventDefault();
-            let orderName = $(currentPayOrder).find('.order-pay-name').text().trim();
+            orderPayName = $(currentPayOrder).find('.order-pay-name').html();
+            
+            $('.js-pay-type').children('div') ? $('.js-pay-type').children('div').remove() : null;
+            $('.js-pay-type').html(orderPayName);
+            
             if ($(currentPayOrder).data('icon')) {
-                // console.log($(currentPayOrder).data('icon'));
-                
-                $('.js-pay-type').children('div').remove();
-                let orderInner = '<div style="height: 100%; float: left;"><img src="' + $(currentPayOrder).data('icon') + '" style="width: 30px; margin: 1px 14px 0 0" alt="" /></div >' + $('.js-delivery-type').html();
-                $('.js-pay-type').html(orderInner);
-            }
-            else {
-                $('.js-pay-type').children('div').remove();
-                $('.js-pay-type').html(orderName);
+                let orderPayInner = '<div style="height: 100%; float: left;"><img src="' + 
+                                $(currentPayOrder).data('icon') + '" style="width: 30px; margin: 1px 14px 0 0" alt="" /></div >' + 
+                                $('.js-pay-type').html();
+                $('.js-pay-type').html(orderPayInner);
             }
 
             $('.js-pay-more-button').show(200);
