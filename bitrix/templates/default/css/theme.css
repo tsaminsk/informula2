@@ -9949,7 +9949,7 @@ button.swiper-pagination-bullet {
     font-weight: 400;
 }
 
-/* детальная страница заказа order detail */
+/* детальная страница заказа - order detail page*/
 
 .order-detail {
     margin: 0 0 28px;
@@ -9963,6 +9963,12 @@ button.swiper-pagination-bullet {
     line-height: normal;
     color: #000000;
     margin: 0 0 27px;
+}
+
+@media (max-width: 767px) {
+    .order-detail-subtitle {
+        text-align: center;
+    }
 }
 
 .order-detail-back {
