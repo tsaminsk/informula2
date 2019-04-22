@@ -10396,9 +10396,10 @@ span.whith-close:before {
 }
 
 .order-delivery-note {
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    color: #999;
+    font-weight: 400;
+    color: #929292;
 }
 
 .order-delivery-note-icon {
@@ -10410,8 +10411,8 @@ span.whith-close:before {
     font-size: 13px;
     font-weight: 500;
     border-radius: 50%;
-    border: 1px solid #999;
-    color: #999;
+    border: 1px solid #929292;
+    color: #929292;
     text-align: center;
 }
 

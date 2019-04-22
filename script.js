@@ -166,8 +166,8 @@ class OrderDetail {
             $('.js-pay-type').html(orderPayName);
             
             if ($(currentPayOrder).data('icon')) {
-                let orderPayInner = '<div style="height: 100%; float: left;"><img src="' + 
-                                $(currentPayOrder).data('icon') + '" style="width: 30px; margin: 1px 14px 0 0" alt="" /></div >' + 
+                let orderPayInner = '<div style="height: 100%; float: left; margin-top: -3px;"><img src="' + 
+                                $(currentPayOrder).data('icon') + '" style="width: 20px; margin: 1px 14px 0 0" alt="" /></div >' + 
                                 $('.js-pay-type').html();
                 $('.js-pay-type').html(orderPayInner);
             }
