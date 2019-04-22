@@ -10165,10 +10165,16 @@ span.whith-close:before {
 
 .order-change {
     position: relative;
+    display: inline-block;
+    vertical-align: middle;
     font-size: 14px;
     border-bottom: 1px dashed #FD8450;
     transition: border-color 0.25s, color 0.25s;
-    margin: 0 0 0 35px;
+    margin: -7px 0 0 35px;
+}
+
+.order-change#pay-more-button {
+    margin: 10px 0 0 35px;
 }
 
 .order-change:hover {
