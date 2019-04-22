@@ -10212,10 +10212,11 @@ span.whith-close:before {
     font-size: 12px;
     line-height: 13px;
     color: #999;
+    margin: 9px 0 0;
 }
 
-.col-md-12 .order-detail-note {
-    margin: 22px 0 0;
+.col-md-12 > .order-detail-note {
+    margin: 31px 0 0;
 }
 
 .panel .btn-empty3 {
@@ -10290,7 +10291,9 @@ span.whith-close:before {
 
 .order-table-col-1 .order-goods-desc {
     font-size: 13px;
+    font-weight: 400;
     line-height: 15px;
+    color: #999;
 }
 
 .top-bordered .order-data {
@@ -10301,6 +10304,9 @@ span.whith-close:before {
     display: none;
     padding: 30px 0 0;
     border-top: 1px solid #e2e2e2;
+}
+
+.order-detail-more#zakaz-more {
     margin: 30px 0 0;
 }
 
@@ -10309,6 +10315,11 @@ span.whith-close:before {
 }
 
 @media (max-width: 767px) {
+    .order-detail-more#zakaz-more {
+        padding: 10px 0 0;
+        border: none;
+        margin: 0;
+    }
     .table-content {
         overflow-x: scroll;
         -webkit-overflow-scrolling: auto;
@@ -10364,17 +10375,18 @@ span.whith-close:before {
     left: -35px;
     display: inline-block;
     vertical-align: top;
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background: #FF8548 url(../images/icons/check.svg) center center no-repeat;
-    background-size: 60% 60%;
+    background: url(../images/icons/check-circle.svg) center center no-repeat;
+    background-size: 100%;
     margin: -1px 5px 0 0;
 }
 
 .order-delivery-cost {
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     color: #000;
     margin: 0 0 7px;
 }
@@ -10424,13 +10436,7 @@ span.whith-close:before {
 }
 .order-pay-icon img {
     float: left;
-    width: 30px;
-    height: 100%;
-}
-
-.order-pay-icon--mini img {
-    width: 17px;
-    margin: 2px 0 0;
+    height: 30px;
 }
 
 .order-pay-icon span {

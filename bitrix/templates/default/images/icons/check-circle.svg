@@ -1,0 +1,9 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF7665" offset="0%"></stop>
+            <stop stop-color="#FF8548" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <path d="M11.9906136,0 C5.36869321,0 0,5.36846838 0,11.9906136 C0,18.6127588 5.36869321,23.9812272 11.9906136,23.9812272 C18.6132646,23.9812272 23.9812272,18.6127588 23.9812272,11.9906136 C23.9812272,5.36846838 18.6130398,0 11.9906136,0 Z M9.7910445,18.1499578 L4.51132553,12.8704637 L6.27108197,11.1107073 L9.7910445,14.630445 L17.7101452,6.71111944 L19.4699016,8.47087588 L9.7910445,18.1499578 Z" id="Shape" stroke="none" fill="url(#linearGradient-1)" fill-rule="evenodd"></path>
+</svg>
